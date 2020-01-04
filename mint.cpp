@@ -166,14 +166,10 @@ mint operator +(mint const &m1 , mint const &m2)
 	
 	return resultat;
 }
-mint operator +=(mint m1 , mint m2)
+mint& mint::operator +=(mint m2)
 {
-//	m1=m1+m2;
-	mint resultat("");
-	resultat=m1+m2;
-
-	resultat.aff();
-	return resultat;
+	*this = *this + m2;
+	return *this;
 }
 void mint::aff()
 {
