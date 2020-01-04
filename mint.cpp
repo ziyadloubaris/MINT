@@ -166,12 +166,40 @@ mint operator +(mint const &m1 , mint const &m2)
 	
 	return resultat;
 }
+
 mint& mint::operator +=(mint m2)
 {
 	*this = *this + m2;
 	return *this;
 }
+
 void mint::aff()
 {
 	cout<<mint_number<<"\n";
 }
+//------------------------------------------------------------------
+bool operator >(mint m1, mint m2)
+{
+	return (strcmp(m1.mint_number,m2.mint_number) >0)  ?  1 :  0 ;
+}
+
+bool operator <(mint m1, mint m2)
+{
+	return (strcmp(m1.mint_number,m2.mint_number) <0)  ?  1 :  0 ;
+}
+//------------------------------------------------------------------
+bool operator ==(mint m1, mint m2)
+{
+	return (strcmp(m1.mint_number,m2.mint_number) ==0)  ?  1 :  0 ;
+}
+//-----------------------------------------------------------------
+bool operator >=(mint m1, mint m2)
+{
+	return (strcmp(m1.mint_number,m2.mint_number) >=0)  ?  1 :  0 ;
+}
+
+bool operator <=(mint m1, mint m2)
+{
+	return (strcmp(m1.mint_number,m2.mint_number) <=0)  ?  1 :  0 ;
+}
+//------------------------------------------------------------------
