@@ -14,6 +14,8 @@ class mint
 		friend bool operator ==(mint m1 , mint m2);
 		friend bool operator >=(mint m1 , mint m2);
 		friend bool operator <=(mint m1 , mint m2);
+		unsigned int toUnsignedInt();
+		float toFloat();
 	protected:
 		char * mint_number;
 };
