@@ -207,7 +207,7 @@ bool operator <=(mint m1, mint m2)
 unsigned int mint::toUnsignedInt(){
     unsigned int nbr_converti = 0;
     int nbr_multiplication = 1;
-
+    int taille_effective= strlen(mint_number);
     for(int i = taille_effective - 1; i >= 0; i--){
         nbr_converti += mint[i] * nbr_multiplication;
         nbr_multiplication *= 10;
@@ -221,7 +221,7 @@ unsigned int mint::toUnsignedInt(){
 float mint::toFloat(){
     float nbr_converti = 0;
     int nbr_multiplication = 1;
-
+    int taille_effective= strlen(mint_number);
     for(int i = taille_effective - 1; i >= 0; i--){
         nbr_converti += mint[i] * nbr_multiplication;
         nbr_multiplication *= 10;
