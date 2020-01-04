@@ -203,3 +203,31 @@ bool operator <=(mint m1, mint m2)
 	return (strcmp(m1.mint_number,m2.mint_number) <=0)  ?  1 :  0 ;
 }
 //------------------------------------------------------------------
+
+unsigned int mint::toUnsignedInt(){
+    unsigned int nbr_converti = 0;
+    int nbr_multiplication = 1;
+    int taille_effective= strlen(mint_number);
+    for(int i = taille_effective - 1; i >= 0; i--){
+        nbr_converti += mint[i] * nbr_multiplication;
+        nbr_multiplication *= 10;
+    }
+
+    cout<<"\n"<<nbr_converti<<endl;
+
+    return nbr_converti;
+}
+
+float mint::toFloat(){
+    float nbr_converti = 0;
+    int nbr_multiplication = 1;
+    int taille_effective= strlen(mint_number);
+    for(int i = taille_effective - 1; i >= 0; i--){
+        nbr_converti += mint[i] * nbr_multiplication;
+        nbr_multiplication *= 10;
+    }
+
+    cout<<"\n"<<nbr_converti<<endl;
+
+    return nbr_converti;
+}
