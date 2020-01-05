@@ -209,7 +209,7 @@ unsigned int mint::toUnsignedInt(){
     int nbr_multiplication = 1;
     int taille_effective= strlen(mint_number);
     for(int i = taille_effective - 1; i >= 0; i--){
-        nbr_converti += mint[i] * nbr_multiplication;
+        nbr_converti += mint_number[i] * nbr_multiplication;
         nbr_multiplication *= 10;
     }
 
@@ -223,7 +223,7 @@ float mint::toFloat(){
     int nbr_multiplication = 1;
     int taille_effective= strlen(mint_number);
     for(int i = taille_effective - 1; i >= 0; i--){
-        nbr_converti += mint[i] * nbr_multiplication;
+        nbr_converti += mint_number[i] * nbr_multiplication;
         nbr_multiplication *= 10;
     }
 
