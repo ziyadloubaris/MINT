@@ -4,9 +4,14 @@
 
 int main() {
 	//std::cout<<"hello";
-	mint m1("300"), m2("301"),m3("");
+	int c=2;
+	mint m1("300"), m2=c,m3("");
 	m1.aff();
 	m2.aff();
+	m3=++m2+1;
+	m3++;
+	m3.aff();
+	
 //	m3.aff();
 	m3=m1+m2;
 	m2=m1;

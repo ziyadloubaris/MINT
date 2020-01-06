@@ -72,36 +72,41 @@ mint::mint(char * number) // avec se constructeur je peut depasser la taille per
 		mint_number=new char(0);
 	}
 }
+mint::mint(const mint& m1)
+{
+	mint_number=new char(strlen(m1.mint_number));
+	strcpy(mint_number,m1.mint_number);
+}
 
 mint operator +(mint const &m1 , mint const &m2)
 {
-	char *resultat;
-		
-		int taille_resultat;
+	char *resultat;	
+	int taille_resultat;
+
 	if(strlen(m1.mint_number) > strlen(m2.mint_number))
 	{
-		resultat=new char(strlen(m1.mint_number)+1);
-		taille_resultat=strlen(m1.mint_number)+1;
-		
+		resultat=new char(strlen(m1.mint_number));
+		taille_resultat=strlen(m1.mint_number);	
 	}
 	else if (strlen(m1.mint_number) < strlen(m2.mint_number))
 	{
-		resultat=new char(strlen(m2.mint_number)+1);
-		taille_resultat=strlen(m2.mint_number)+1;
+		resultat=new char(strlen(m2.mint_number));
+		taille_resultat=strlen(m2.mint_number);
 	}
 	else
 	{
-		resultat=new char(strlen(m1.mint_number)+1);
-		taille_resultat=strlen(m1.mint_number)+1;
+		resultat=new char(strlen(m2.mint_number));
+		taille_resultat=strlen(m2.mint_number);	
 	}
 	
 	bool retenue = false;
 	int i=1;
-	int number_m1 , number_m2 , number_resultat;
-	
+	int number_m1 , number_m2 , number_resultat;	
 	char aide_char[0];
 	char aide_char2[0];
 	
+	resultat[ taille_resultat]='\0';
+	taille_resultat--;
 	
 	while( taille_resultat>=0)
 	{
@@ -163,7 +168,7 @@ mint operator +(mint const &m1 , mint const &m2)
 		 i++;
 
 	}
-	
+//	cout<<resultat;
 	return resultat;
 }
 
@@ -203,3 +208,25 @@ bool operator <=(mint m1, mint m2)
 	return (strcmp(m1.mint_number,m2.mint_number) <=0)  ?  1 :  0 ;
 }
 //------------------------------------------------------------------
+
+mint operator +(mint const &m1 , int m2)
+{
+	mint m=m2 ,result="";	
+	result=m1+m;
+
+	return result;
+}
+
+mint& mint::operator ++()
+{
+	*this = *this+1;
+	return *this;
+}
+mint mint::operator ++(int)
+{
+	mint result = *this;
+	++(*this);
+
+	return result;
+}
+
