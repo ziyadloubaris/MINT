@@ -72,7 +72,7 @@ mint::mint(char * number) // avec se constructeur je peut depasser la taille per
 		mint_number=new char(0);
 	}
 }
-mint::mint(const mint& m1)
+mint::mint(const mint& m1)//constructeur de copy
 {
 	mint_number=new char(strlen(m1.mint_number));
 	strcpy(mint_number,m1.mint_number);
@@ -83,20 +83,20 @@ mint operator +(mint const &m1 , mint const &m2)
 	char *resultat;	
 	int taille_resultat;
 
-	if(strlen(m1.mint_number) > strlen(m2.mint_number))
+	if(strlen(m1.mint_number) > strlen(m2.mint_number))//je determine la taille la plus grande pour pouvoire allouer le resultat
 	{
-		resultat=new char(strlen(m1.mint_number));
-		taille_resultat=strlen(m1.mint_number);	
+		resultat=new char(strlen(m1.mint_number)+1);
+		taille_resultat=strlen(m1.mint_number)+1;	
 	}
 	else if (strlen(m1.mint_number) < strlen(m2.mint_number))
 	{
-		resultat=new char(strlen(m2.mint_number));
-		taille_resultat=strlen(m2.mint_number);
+		resultat=new char(strlen(m2.mint_number)+1);
+		taille_resultat=strlen(m2.mint_number)+1;
 	}
 	else
 	{
-		resultat=new char(strlen(m2.mint_number));
-		taille_resultat=strlen(m2.mint_number);	
+		resultat=new char(strlen(m2.mint_number)+1);
+		taille_resultat=strlen(m2.mint_number)+1;	
 	}
 	
 	bool retenue = false;
@@ -104,23 +104,20 @@ mint operator +(mint const &m1 , mint const &m2)
 	int number_m1 , number_m2 , number_resultat;	
 	char aide_char[0];
 	char aide_char2[0];
-	
-	resultat[ taille_resultat]='\0';
-	taille_resultat--;
-	
+
 	while( taille_resultat>=0)
 	{
-		if(strlen(m1.mint_number)-i>=0)
+		if(strlen(m1.mint_number)-i>=0)// la transformation des chiffre from char to int 
 		{
 			aide_char2[0]=m1.mint_number[strlen(m1.mint_number)-i];
 			number_m1=atoi(aide_char2);	
 		}
-		else
+		else // si nous avons parcouru toute la chaine de m1 mais que la taille est encore >= 0 on doit pouvoir faire la somme 
 		{
 			number_m1=0;
 		}
 		
-		if(strlen(m2.mint_number)-i>=0)
+		if(strlen(m2.mint_number)-i>=0)// la transformation des chiffre from char to int
 		{
 			aide_char2[0]=m2.mint_number[strlen(m2.mint_number)-i];
 			number_m2=atoi(aide_char2);	
@@ -168,7 +165,7 @@ mint operator +(mint const &m1 , mint const &m2)
 		 i++;
 
 	}
-//	cout<<resultat;
+
 	return resultat;
 }
 
@@ -211,9 +208,10 @@ bool operator <=(mint m1, mint m2)
 
 mint operator +(mint const &m1 , int m2)
 {
-	mint m=m2 ,result="";	
-	result=m1+m;
+	mint m=m2 ,result=m2;	
 
+	result.aff();
+		result=m1+m;
 	return result;
 }
 

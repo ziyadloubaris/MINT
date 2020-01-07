@@ -3,6 +3,10 @@
 
 class mint
 {
+	/*
+		cette classe permet de depasser la taille maximale (4 octe) permis lors de la declaration d'un int
+		de maniere optimale car il sera stocker entant que caractaire (pour chaque nombre 1 octe)
+	*/
 	public:
 		mint(int number);
 		mint(char * number);
