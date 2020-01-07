@@ -1,5 +1,6 @@
 #ifndef MINT_H
 #define MINT_H
+#include<ostream>
 
 class mint
 {
@@ -22,6 +23,7 @@ class mint
 		friend bool operator ==(mint m1 , mint m2);
 		friend bool operator >=(mint m1 , mint m2);
 		friend bool operator <=(mint m1 , mint m2);
+		friend std::ostream &operator <<(std::ostream & cout , const mint &m1);
 	protected:
 		char * mint_number;
 };

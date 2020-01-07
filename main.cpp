@@ -3,32 +3,19 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main() {
-	//std::cout<<"hello";
-	int c=2;
-	mint m1("300"), m2=c,m3("");
-	m1.aff();
-	m2.aff();
-	m3=++m2+1;
-	m3++;
-	m3.aff();
 	
-//	m3.aff();
+	mint m1(1), m2("999889"),m3("") ,m4(0);
 	m3=m1+m2;
-	m2=m1;
-	if(m1==m2)
+	++m3;
+	m3.aff();
+	if(m3 >= 10 )
 	{
-		m1.aff();
+	//	m3.aff();
+		std::cout<< m1<<" + "<<m2<<" = "<<m3<<"\n";
 	}
-	else if (m1<m2)
-	{
-		m2.aff();
-	}
-/*	m3.aff();
-	m1+=m2;
-	std::cout<<"\n";
-	m1.aff();
-	m1=m1+m2;
-	m1.aff();
-*/
+	m4=++m3;
+	m4.aff();
+	m4++;
+	m4.aff();
 	return 0;
 }

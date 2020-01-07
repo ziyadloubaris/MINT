@@ -99,6 +99,9 @@ mint operator +(mint const &m1 , mint const &m2)
 		taille_resultat=strlen(m2.mint_number)+1;	
 	}
 	
+	resultat[ taille_resultat]='\0';
+	taille_resultat--;
+	
 	bool retenue = false;
 	int i=1;
 	int number_m1 , number_m2 , number_resultat;	
@@ -210,14 +213,13 @@ mint operator +(mint const &m1 , int m2)
 {
 	mint m=m2 ,result=m2;	
 
-	result.aff();
-		result=m1+m;
+	result=m1+m;
 	return result;
 }
 
 mint& mint::operator ++()
 {
-	*this = *this+1;
+	*this = *this +1;
 	return *this;
 }
 mint mint::operator ++(int)
@@ -228,3 +230,7 @@ mint mint::operator ++(int)
 	return result;
 }
 
+ostream &operator <<(ostream & cout , const mint &m1)
+{
+	return cout<<m1.mint_number;
+}
